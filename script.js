@@ -80,7 +80,7 @@ function drawAxes() {
     }
 
     // Draw x-axis label
-    ctx.fillText('Lernstunden', width / 2 - 30, height - 10);
+    ctx.fillText('Wöchentliche Lernstunden', width / 2 - 30, height - 10);
 
     // Draw y-axis label
     ctx.save();
