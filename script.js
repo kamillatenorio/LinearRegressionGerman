@@ -318,29 +318,40 @@ function updateParameters() {
     drawDataPoints();
     drawLine(w, b);
 
-    if (calculateMSE(w, b) >= mseThreshold) {
-        predictionsDiv.innerHTML = `
+    let improvementMessage = '';
+
+    if (iteration === 1) {
+        improvementMessage = `
             <h2>II - IMPROVEMENT: Update the Parameters (Iteration ${iteration - 1})</h2>
-            <p>As we checked the current model with the previous parameters is not suitable, let's try other parameters:</p>
+            <p>As we checked, the current model with the previous weights is not suitable. Let's try other weight values:</p>
             <p>a = ${w.toFixed(2)}</p>
             <p>b = ${b.toFixed(2)}</p>
-            <p>To update automatically the parameters, the linear regression uses the gradient descent algorithm.</p>
-            <p>Let's see what our model looks like with the new parameters. Check the graph:</p>
+            <p>To update automatically the weight values, the linear regression uses the gradient descent algorithm.</p>
+            <p>Let's see what our model looks like with the new weight values. Check the graph:</p>
             <button id="evaluateBtn">Evaluate the model</button>
         `;
-        document.getElementById('evaluateBtn').addEventListener('click', () => {
-            addProgressBar(); // Add a new progress bar for the next iteration
-            calculateErrors();
-        });
-        updateProgressBar(3); // Fully fill the progress bar for the current iteration
     } else {
-        controlsDiv.innerHTML = `<p>Great! We have a model with low error and that fits our data!</p>
-            <button id="useModelBtn">Use your model</button>`;
-        predictionsDiv.innerHTML = '';
-        document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
-        updateProgressBar(3); // Fully fill the progress bar for the current iteration
+        improvementMessage = `
+            <h2>II - IMPROVEMENT: Update the Parameters (Iteration ${iteration - 1})</h2>
+            <p>As we checked, the current model with the previous weights is not suitable. Let's try other weight values:</p>
+            <p>a = ${w.toFixed(2)}</p>
+            <p>b = ${b.toFixed(2)}</p>
+            <p>Let's see what our model looks like with the new weight values. Check the graph:</p>
+            <button id="evaluateBtn">Evaluate the model</button>
+        `;
     }
+
+    predictionsDiv.innerHTML = improvementMessage;
+
+    // Attach event listener for the 'Evaluate' button
+    document.getElementById('evaluateBtn').addEventListener('click', () => {
+        addProgressBar(); // Add a new progress bar for the next iteration
+        calculateErrors();
+    });
+
+    updateProgressBar(3); // Fully fill the progress bar for the current iteration
 }
+
 
 function showTestPhase() {
     // Remove progress bars and data points
