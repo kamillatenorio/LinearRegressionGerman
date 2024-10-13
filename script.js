@@ -80,13 +80,13 @@ function drawAxes() {
     }
 
     // Draw x-axis label
-    ctx.fillText('Study Time (Hours)', width / 2 - 30, height - 10);
+    ctx.fillText('Lernstunden', width / 2 - 30, height - 10);
 
     // Draw y-axis label
     ctx.save();
     ctx.translate(10, height / 2);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillText('Correct Answers (1-10)', -50, 0);
+    ctx.fillText('Anzahl der richtigen Antworten (1-10)', -50, 0);
     ctx.restore();
 }
 
@@ -102,26 +102,34 @@ function drawDataPoints() {
 }
 
 function handleCollectData() {
-    phaseTitle.innerText = 'Training Phase'; // Change title to "Training Phase"
+    phaseTitle.innerText = 'Trainingsphase'; // Change title to "Training Phase"
     drawDataPoints();
     iteration = 0; // Reset iteration count
     controlsDiv.innerHTML = `
-        <p>So now we have the data, let's see how the linear regression algorithm learns a model by observing labelled data.</p>
+        <p>
+            Jetzt haben wir also die Daten. Sehen wir uns an, wie der lineare Regressionsalgorithmus durch Beobachtung gekennzeichneter Daten ein Modell lernt.
+        </p>
         <br>
-        <button id="startLearningBtn">Let's see!</button>
+        <button id="startLearningBtn">
+            Schauen wir mal!
+        </button>
     `;
     document.getElementById('startLearningBtn').addEventListener('click', showExplanation);
 }
 
 function showExplanation() {
     controlsDiv.innerHTML = `
-        <p>First, let's understand a little bit more about this algorithm. <br>
-        
-        The model created by the linear regression is represented by a straight line.<br>
-        Mathematically, a straight line is defined as follows, where by changing the value of the parameters of my model (i.e., a and b), we can get different lines:</p>
+        <p>
+            Lassen Sie uns zunächst diesen Algorithmus ein wenig besser verstehen.
+        <br>
+            Das durch die lineare Regression erstellte Modell wird durch eine gerade Linie dargestellt (im Gegensatz zum Entscheidungsbaumalgorithmus, bei dem das Modell durch einen Baum dargestellt wird).
+        <br>
+            Mathematisch gesehen ist eine gerade Linie wie folgt definiert, wobei wir durch Ändern des Werts der Gewichte meines Modells (d. h. a und b) verschiedene Linien erhalten können:
+        </p>
         <h4> y = a * x + b </h4> 
 
-        Try to change the following parameters, and check how we can get different lines through changing the parameters:
+            Versuchen Sie, die folgenden Gewichte zu ändern, und überprüfen Sie, wie wir durch Ändern der Gewichte verschiedene Linien erhalten können:
+
         <div>
             <label for="aRange">a (Slope): </label>
             <input type="range" id="aRange" min="-5" max="5" step="0.1" value="0">
@@ -133,8 +141,12 @@ function showExplanation() {
             <span id="bValue">0</span>
         </div>
         <br>
-        <p>The task of the linear regression algorithm is to learn the suitable values for the parameters a and b, i.e., find the line that best “fits” the data.</p>
-        <button id="startLearningProcessBtn">Let's start the learning process</button>
+        <p>
+            Die Aufgabe des linearen Regressionsalgorithmus besteht darin, die geeigneten Werte für die Gewichte a und b zu ermitteln, d. h. die Linie zu finden, die am besten zu den Daten „passt“.
+        </p>
+        <button id="startLearningProcessBtn">
+            Beginnen wir mit dem Lernprozess
+        </button>
 
     `;
     document.getElementById('startLearningProcessBtn').addEventListener('click', startLearningProcess);
@@ -194,14 +206,22 @@ function nextIteration() {
     let html = `<h2>Iteration ${iteration}</h2>`;
     if (iteration === 0) {
         html += `
-            <p>The linear regression algorithm does not know what are the suitable parameters, so it will learn iteration by iteration.</p>
-            <p>Normally, the algorithm starts with a = 0 and b = 0.</p>
-            <p>Mathematically, we have the following equation: </p>
+            <p>
+                Der lineare Regressionsalgorithmus weiß nicht, wie die geeigneten Gewichtswerte aussehen, daher lernt er Iteration für Iteration.
+            </p>
+            <p>
+                Normalerweise beginnt der Algorithmus mit a = 0 und b = 0.
+            </p>
+            <p>
+                Mathematisch haben wir die folgende Gleichung:
+            </p>
             <h4>y = ${w} * x + ${b}</h4>
-            <p>Graphically, we have the following yellow line: </p>
+            <p>
+                Grafisch haben wir die folgende gelbe Linie:
+            </p>
         `;
     }
-    html += `<button id="nextBtn">Next</button>`;
+    html += `<button id="nextBtn">Weiter</button>`;
     controlsDiv.innerHTML = html;
     document.getElementById('nextBtn').addEventListener('click', () => checkModel());
 }
@@ -240,8 +260,11 @@ function checkModel() {
     const mse = calculateMSE(w, b);
 
     if (mse < mseThreshold) {
-        controlsDiv.innerHTML = `<p>Great! We have a model with low error and that fits our data!</p>
-            <button id="useModelBtn">Use your model</button>`;
+        controlsDiv.innerHTML = `<p>
+            Great! We have a model with low error and that fits our data!</p>
+            <button id="useModelBtn">
+                Use your model
+            </button>`;
         predictionsDiv.innerHTML = '';
         document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
         updateProgressBar(3); // Fully fill the progress bar
@@ -258,18 +281,31 @@ function calculateErrors() {
 
     if (iteration === 0) {
         evaluationMessage = `
-            <h2>I - EVALUATION: Calculate Error (Iteration ${iteration})</h2>
-            <p>The linear regression algorithm calculates the error, i.e., compares the values predicted by the model with the actual values to evaluate if the model is fitting the data well.</p>
-            <p>The objective is to have an error close to 0, and since the error is high, let's update the weights.</p>
-            <p>A popular way used to calculate this error is using the mean squared error, which now is: ${mse.toFixed(2)}.</p>
-            <button id="updateParametersBtn">Update parameters</button>
+            <h2>
+                I - BEWERTUNG: Fehler berechnen (Iteration ${iteration})
+            </h2>
+            <p>
+                Der lineare Regressionsalgorithmus berechnet den Fehler, d. h., er vergleicht die vom Modell vorhergesagten Werte mit den tatsächlichen Werten, um zu beurteilen, ob das Modell gut zu den Daten passt.
+            </p>
+            <p>
+                Das Ziel ist es, einen Fehler nahe 0 zu haben, und da der Fehler hoch ist, sollten wir die Gewichte aktualisieren.
+            </p>
+            <p>
+                Eine beliebte Methode zur Berechnung dieses Fehlers ist die Verwendung des mittleren quadratischen Fehlers, der nun  ${mse.toFixed(2)} beträgt.
+            </p>
+            <button id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
         `;
     } else {
         evaluationMessage = `
-            <h2>I - EVALUATION: Calculate Error (Iteration ${iteration})</h2>
-            <p>Let’s calculate the error now with the updated weight values, i.e., compare the values predicted by the model with the actual values to evaluate if the model is fitting the data well.</p>
-            <p>The mean squared error now is ${mse.toFixed(2)}. As the objective is to have an error close to 0, and since the error is high, let's update the weight values.</p>
-            <button id="updateParametersBtn">Update parameters</button>
+            <h2>
+                I - BEWERTUNG: Fehler berechnen (Iteration ${iteration})
+            </h2>
+            <p> 
+                Berechnen wir nun den Fehler mit den aktualisierten Gewichtungswerten, d. h. vergleichen wir die vom Modell vorhergesagten Werte mit den tatsächlichen Werten, um zu beurteilen, ob das Modell gut zu den Daten passt.            </p>
+            <p>
+                Der mittlere quadratische Fehler beträgt jetzt ${mse.toFixed(2)}. Da das Ziel darin besteht, einen Fehler nahe 0 zu haben, und der Fehler hoch ist, sollten wir die Gewichtswerte aktualisieren.
+            </p>
+            <button id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
         `;
     }
 
@@ -320,36 +356,62 @@ function updateParameters() {
 
     let improvementMessage = '';
 
-    if (iteration === 1) {
+    if (calculateMSE(w, b) >= mseThreshold) {
+        if (iteration === 1) {
         improvementMessage = `
-            <h2>II - IMPROVEMENT: Update the Parameters (Iteration ${iteration - 1})</h2>
-            <p>As we checked, the current model with the previous weights is not suitable. Let's try other weight values:</p>
+            <h2>
+                II - VERBESSERUNG: Aktualisieren der Gewichtungen (Iteration ${iteration - 1})
+            </h2>
+            <p>
+                Wie wir überprüft haben, ist das aktuelle Modell mit den vorherigen Gewichtungen nicht geeignet. Versuchen wir es mit anderen Gewichtungswerten:
+            </p>
             <p>a = ${w.toFixed(2)}</p>
             <p>b = ${b.toFixed(2)}</p>
-            <p>To update automatically the weight values, the linear regression uses the gradient descent algorithm.</p>
-            <p>Let's see what our model looks like with the new weight values. Check the graph:</p>
-            <button id="evaluateBtn">Evaluate the model</button>
+            <p>
+                <i> Um die Gewichtungswerte automatisch zu aktualisieren, verwendet die lineare Regression den Gradientenabstiegsalgorithmus.</i>
+            </p>
+            <p>
+                Sehen wir uns an, wie unser Modell mit den neuen Gewichtungswerten aussieht. Überprüfen Sie die Grafik:
+            </p>
+            <button id="evaluateBtn">Modell auswerten</button>
         `;
+        predictionsDiv.innerHTML = improvementMessage;
+        // Attach event listener for the 'Evaluate' button
+        document.getElementById('evaluateBtn').addEventListener('click', () => {
+            addProgressBar(); // Add a new progress bar for the next iteration
+            calculateErrors();
+        });
+        updateProgressBar(3); // Fully fill the progress bar for the current iteration
+        } else {
+            improvementMessage = `
+                <h2>
+                    II - VERBESSERUNG: Aktualisieren der Gewichtungen (Iteration ${iteration - 1})
+                </h2>
+                <p>
+                    Wie wir überprüft haben, ist das aktuelle Modell mit den vorherigen Gewichtungen nicht geeignet. Versuchen wir es mit anderen Gewichtungswerten:
+                </p>
+                <p>a = ${w.toFixed(2)}</p>
+                <p>b = ${b.toFixed(2)}</p>
+                <p>
+                    Sehen wir uns an, wie unser Modell mit den neuen Gewichtungswerten aussieht. Überprüfen Sie die Grafik:
+                </p>
+                <button id="evaluateBtn">Modell auswerten</button>
+            `;
+            predictionsDiv.innerHTML = improvementMessage;
+        // Attach event listener for the 'Evaluate' button
+        document.getElementById('evaluateBtn').addEventListener('click', () => {
+            addProgressBar(); // Add a new progress bar for the next iteration
+            calculateErrors();
+        });
+        updateProgressBar(3); // Fully fill the progress bar for the current iteration
+        } 
     } else {
-        improvementMessage = `
-            <h2>II - IMPROVEMENT: Update the Parameters (Iteration ${iteration - 1})</h2>
-            <p>As we checked, the current model with the previous weights is not suitable. Let's try other weight values:</p>
-            <p>a = ${w.toFixed(2)}</p>
-            <p>b = ${b.toFixed(2)}</p>
-            <p>Let's see what our model looks like with the new weight values. Check the graph:</p>
-            <button id="evaluateBtn">Evaluate the model</button>
-        `;
+        controlsDiv.innerHTML = `<p>Großartig! Wir haben ein Modell mit geringer Fehlerquote, das zu unseren Daten passt!</p>
+            <button id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
+        predictionsDiv.innerHTML = '';
+        document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
+        updateProgressBar(3); // Fully fill the progress bar for the current iteration
     }
-
-    predictionsDiv.innerHTML = improvementMessage;
-
-    // Attach event listener for the 'Evaluate' button
-    document.getElementById('evaluateBtn').addEventListener('click', () => {
-        addProgressBar(); // Add a new progress bar for the next iteration
-        calculateErrors();
-    });
-
-    updateProgressBar(3); // Fully fill the progress bar for the current iteration
 }
 
 
@@ -361,11 +423,13 @@ function showTestPhase() {
     drawLine(w, b); // Redraw the learned line
 
     // Update phase title and controls
-    phaseTitle.innerText = 'Application Phase';
+    phaseTitle.innerText = 'Anwendungsphase';
     controlsDiv.innerHTML = `
-        <p>Use this model to predict how many correct answers you will get in the test depending on how many hours you studied. Enter the number of hours you studied:</p>
+        <p>
+            Verwenden Sie dieses Modell, um vorherzusagen, wie viele richtige Antworten Sie im Test erhalten werden, je nachdem, wie viele Stunden Sie wöchentlich lernen möchten. Geben Sie die Anzahl der Stunden ein, die Sie lernen möchten:
+        </p>
         <input type="number" id="studyHours" min="0" max="25" step="0.1">
-        <button id="submitHoursBtn">Submit</button>
+        <button id="submitHoursBtn">Senden</button>
         <div id="predictionResult"></div>
     `;
     document.getElementById('submitHoursBtn').addEventListener('click', predictCorrectAnswers);
@@ -376,13 +440,13 @@ function predictCorrectAnswers() {
     const studyHours = parseFloat(studyHoursInput.value);
 
     if (isNaN(studyHours) || studyHours < 0 || studyHours > 25) {
-        alert('Please enter a valid number of hours between 0 and 25.');
+        alert('Bitte geben Sie eine gültige Anzahl von Stunden zwischen 0 und 25 ein.');
         return;
     }
 
     const predictedAnswers = w * studyHours + b;
     const resultDiv = document.getElementById('predictionResult');
-    resultDiv.innerHTML = `<p>If you study ${studyHours} hours, you can expect to get approximately ${predictedAnswers.toFixed(2)} correct answers out of 10.</p>`;
+    resultDiv.innerHTML = `<p>Wenn Sie ${studyHours} Stunden pro Woche lernen, können Sie davon ausgehen, dass Sie etwa ${predictedAnswers.toFixed(2)} von 10 Fragen richtig beantworten.</p>`;
     addTestDataPoint(studyHours, predictedAnswers);
 }
 
