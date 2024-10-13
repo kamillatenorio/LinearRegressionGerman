@@ -254,14 +254,28 @@ function checkModel() {
 
 function calculateErrors() {
     const mse = calculateMSE(w, b);
-    predictionsDiv.innerHTML = `
-        <h2>I - EVALUATION: Calculate Error (Iteration ${iteration})</h2>
-        <p>The linear regression algorithm calculates the errors, i.e., compares the value predicted by the model with the actual value, to see if the model is good. </p>
-        <p>The objective is to have an error close to 0, and since the error is high, let's update the parameters.</p>
-        <p> A popular way used to calculate this error is using the mean squared error, which now is: ${mse.toFixed(2)}.</p>
+    let evaluationMessage = '';
 
-        <button id="updateParametersBtn">Update parameters</button>
-    `;
+    if (iteration === 0) {
+        evaluationMessage = `
+            <h2>I - EVALUATION: Calculate Error (Iteration ${iteration})</h2>
+            <p>The linear regression algorithm calculates the error, i.e., compares the values predicted by the model with the actual values to evaluate if the model is fitting the data well.</p>
+            <p>The objective is to have an error close to 0, and since the error is high, let's update the weights.</p>
+            <p>A popular way used to calculate this error is using the mean squared error, which now is: ${mse.toFixed(2)}.</p>
+            <button id="updateParametersBtn">Update parameters</button>
+        `;
+    } else {
+        evaluationMessage = `
+            <h2>I - EVALUATION: Calculate Error (Iteration ${iteration})</h2>
+            <p>Let’s calculate the error now with the updated weight values, i.e., compare the values predicted by the model with the actual values to evaluate if the model is fitting the data well.</p>
+            <p>The mean squared error now is ${mse.toFixed(2)}. As the objective is to have an error close to 0, and since the error is high, let's update the weight values.</p>
+            <button id="updateParametersBtn">Update parameters</button>
+        `;
+    }
+
+    predictionsDiv.innerHTML = evaluationMessage;
+
+    // Attach the event listener to the button after it's been rendered
     document.getElementById('updateParametersBtn').addEventListener('click', updateParameters);
     updateProgressBar(2); // Update the progress bar to 2/3
 
@@ -280,6 +294,7 @@ function calculateErrors() {
         ctx.stroke();
     });
 }
+
 
 function updateParameters() {
     // Implementing one iteration of gradient descent
