@@ -194,10 +194,10 @@ function addProgressBar() {
 
 function updateProgressBar(step) {
     const progressBar = progressBars[progressBars.length - 1];
-    if (step === 3) {
+    if (step === 2) {
         progressBar.animate(1.0);
     } else {
-        progressBar.animate(0.33 * step);
+        progressBar.animate(0.5 * step);
     }
 }
 
@@ -267,7 +267,7 @@ function checkModel() {
             </button>`;
         predictionsDiv.innerHTML = '';
         document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
-        updateProgressBar(3); // Fully fill the progress bar
+        updateProgressBar(2); // Fully fill the progress bar
     } else {
         controlsDiv.innerHTML = '<p></p>';
         calculateErrors();
@@ -313,7 +313,7 @@ function calculateErrors() {
 
     // Attach the event listener to the button after it's been rendered
     document.getElementById('updateParametersBtn').addEventListener('click', updateParameters);
-    updateProgressBar(2); // Update the progress bar to 2/3
+    updateProgressBar(1); // Update the progress bar to 2/3
 
     // Draw lines connecting each data point to the regression line
     dataPoints.forEach(point => {
@@ -381,7 +381,7 @@ function updateParameters() {
             addProgressBar(); // Add a new progress bar for the next iteration
             calculateErrors();
         });
-        updateProgressBar(3); // Fully fill the progress bar for the current iteration
+        updateProgressBar(2); // Fully fill the progress bar for the current iteration
         } else {
             improvementMessage = `
                 <h2>
@@ -403,14 +403,14 @@ function updateParameters() {
             addProgressBar(); // Add a new progress bar for the next iteration
             calculateErrors();
         });
-        updateProgressBar(3); // Fully fill the progress bar for the current iteration
+        updateProgressBar(2); // Fully fill the progress bar for the current iteration
         } 
     } else {
         controlsDiv.innerHTML = `<p>Großartig! Wir haben ein Modell mit geringer Fehlerquote, das zu unseren Daten passt!</p>
             <button id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
         predictionsDiv.innerHTML = '';
         document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
-        updateProgressBar(3); // Fully fill the progress bar for the current iteration
+        updateProgressBar(2); // Fully fill the progress bar for the current iteration
     }
 }
 
