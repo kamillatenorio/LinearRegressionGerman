@@ -110,6 +110,7 @@ function handleCollectData() {
             Jetzt haben wir also die Daten. Sehen wir uns an, wie der lineare Regressionsalgorithmus durch Beobachtung gekennzeichneter Daten ein Modell lernt.
         </p>
         <br>
+        <br>
         <button id="startLearningBtn">
             Schauen wir mal!
         </button>
@@ -144,6 +145,7 @@ function showExplanation() {
         <p>
             Die Aufgabe des linearen Regressionsalgorithmus besteht darin, die geeigneten Werte für die Gewichte a und b zu ermitteln, d. h. die Linie zu finden, die am besten zu den Daten „passt“.
         </p>
+        <br>
         <button id="startLearningProcessBtn">
             Beginnen wir mit dem Lernprozess
         </button>
@@ -219,6 +221,8 @@ function nextIteration() {
             <p>
                 Grafisch haben wir die folgende gelbe Linie:
             </p>
+            <br>
+            <br>
         `;
     }
     html += `<button id="nextBtn">Weiter</button>`;
@@ -260,11 +264,8 @@ function checkModel() {
     const mse = calculateMSE(w, b);
 
     if (mse < mseThreshold) {
-        controlsDiv.innerHTML = `<p>
-            Great! We have a model with low error and that fits our data!</p>
-            <button id="useModelBtn">
-                Use your model
-            </button>`;
+        controlsDiv.innerHTML = `<p>Großartig! Wir haben ein Modell mit geringer Fehlerquote, das zu unseren Daten passt!</p>
+            <button id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
         predictionsDiv.innerHTML = '';
         document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
         updateProgressBar(2); // Fully fill the progress bar
@@ -293,6 +294,7 @@ function calculateErrors() {
             <p>
                 Eine beliebte Methode zur Berechnung dieses Fehlers ist die Verwendung des mittleren quadratischen Fehlers, der nun  ${mse.toFixed(2)} beträgt.
             </p>
+            <br><br>
             <button id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
         `;
     } else {
@@ -305,6 +307,7 @@ function calculateErrors() {
             <p>
                 Der mittlere quadratische Fehler beträgt jetzt ${mse.toFixed(2)}. Da das Ziel darin besteht, einen Fehler nahe 0 zu haben, und der Fehler hoch ist, sollten wir die Gewichtswerte aktualisieren.
             </p>
+            <br><br>
             <button id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
         `;
     }
@@ -373,6 +376,7 @@ function updateParameters() {
             <p>
                 Sehen wir uns an, wie unser Modell mit den neuen Gewichtungswerten aussieht. Überprüfen Sie die Grafik:
             </p>
+            <br><br>
             <button id="evaluateBtn">Modell auswerten</button>
         `;
         predictionsDiv.innerHTML = improvementMessage;
@@ -395,6 +399,7 @@ function updateParameters() {
                 <p>
                     Sehen wir uns an, wie unser Modell mit den neuen Gewichtungswerten aussieht. Überprüfen Sie die Grafik:
                 </p>
+                <br><br>
                 <button id="evaluateBtn">Modell auswerten</button>
             `;
             predictionsDiv.innerHTML = improvementMessage;
@@ -406,7 +411,7 @@ function updateParameters() {
         updateProgressBar(2); // Fully fill the progress bar for the current iteration
         } 
     } else {
-        controlsDiv.innerHTML = `<p>Großartig! Wir haben ein Modell mit geringer Fehlerquote, das zu unseren Daten passt!</p>
+        controlsDiv.innerHTML = `<p>Großartig! Wir haben ein Modell mit geringer Fehlerquote, das zu unseren Daten passt!</p><br><br>
             <button id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
         predictionsDiv.innerHTML = '';
         document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
