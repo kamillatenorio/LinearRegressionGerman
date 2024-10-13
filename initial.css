@@ -1,0 +1,214 @@
+body {
+    font-family: 'Fira Sans';
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    font-family: 'Fira Sans';
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0000001a;
+    overflow: hidden;
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    position: relative;
+    max-height: 100vh; /* Ensure it doesn't exceed the viewport height */
+    overflow-y: auto; 
+}
+.button {
+    font-family: 'Fira Sans';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    background-color: rgb(98, 126, 110);
+    border: none;
+    font-size: 24px;
+    border-radius: 20px;
+    padding: 20px 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 12px rgba(17, 17, 17, 0.2);
+}
+.button:hover {
+    background-color: rgb(98, 126, 110);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    flex: 0 0 100%;
+    width: 100%;
+}
+.slide img {
+    width: 100%;
+    height:auto;
+    vertical-align: middle;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.prev {
+    left: 10px;
+}
+.next {
+    right: 10px;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.hide {
+    display: none;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.button1 {
+    top: 20px;
+    right: 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.button1:hover {
+    background-color: #bbb;
+}
+
+.button2 {
+    top: 20px;
+    font-family: 'Fira Sans';
+    right: 20px;
+    background-color: rgb(98, 126, 110);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.button2:hover {
+    background-color: rgb(98, 126, 110);
+}
+
+.button3 {
+    top: 20px;
+    right: 20px;
+    background-color: #8f1818;
+    font-family: 'Fira Sans';
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.button3:hover {
+    background-color: #8f1818;
+}
+
+#left-label {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+#progressBarContainer {
+    width: 80%; /* Set the desired width */
+    background-color: #f3f3f3; /* Light grey background */
+    border: 1px solid #ccc; /* Light grey border */
+    margin: auto;
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure the progress bar is contained within the container */
+    box-shadow: 0 3px 3px -5px #000, 0 2px 5px #000; /* Add shadow for depth */
+}
+
+#progressBar {
+    width: 50%; /* Set the progress bar width */
+    height: 20px; /* Set the height of the progress bar */
+    background-color: #4caf50; /* Green background */
+    text-align: center; /* Center-align text */
+    line-height: 20px; /* Center-align text vertically */
+    color: white; /* Text color */
+    border-radius: 10px 0 0 10px; /* Rounded corners for the progress bar */
+    transition: width 0.4s ease-in-out; /* Smooth transition for width change */
+    position: relative; /* Position relative for adding stripes */
+    overflow: hidden; /* Ensure stripes are contained within the bar */
+}
+
+#canvasContainer {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    margin: 0 auto; /* Center the container itself */
+    padding: 20px; /* Optional padding */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+#gameCanvas {
+    border: 1px solid #ccc; /* Optional border */
+}
+
+hr {
+    border: 0;
+    border-top: 0.5px solid #ccc;
+    margin: 20px 160px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.slider-container label {
+    margin-right: 10px;
+}
+
+.slider-container input {
+    margin-right: 20px;
+}

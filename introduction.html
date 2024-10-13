@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="introduction.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="slider-container">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <div class="image-section">
+                    <img src="Joao1.png" alt="StudentJoao">
+                </div>
+                <div class="text-section">
+                    <h1>
+                        Hallo! 
+                    </h1>
+                    <h2>
+                        Ich bin João, ein Bachelor-Student.                  
+                    </h2>
+                    <br>
+                    <h2>
+                        Ich habe Schwierigkeiten, zu entscheiden, wie viele Stunden ich durchschnittlich wöchentlich lernen sollte, um eine gute Note in meiner abschließenden Mathematikprüfung am Ende des Semesters zu erreichen.
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="image-section">
+                    <img src="Joao1.png" alt="StudentJoao">
+                </div>
+                <div class="text-section">
+                    <h2>
+                        Was können wir tun, um João zu helfen?
+                    </h2>
+                    <form id="quiz-form-2">
+                        <label>
+                            <input type="radio" name="answer" value="A">
+                            A) Daten von früheren Studierenden sammeln und ein Modell erstellen, das die Endnote basierend auf der Anzahl der Lernstunden vorhersagen kann.
+                        </label><br>
+                        <label>
+                            <input type="radio" name="answer" value="B">
+                            B) Empfehlen, dass João so viel wie möglich lernt und sich nur auf die letzte Woche vor der Prüfung konzentriert.
+                        </label><br>
+                        <label>
+                            <input type="radio" name="answer" value="C">
+                            C) Vorschlagen, dass João häufig Pausen einlegt und mehr Zeit für Hobbys statt fürs Lernen verbringt.
+                        </label><br>
+                        <br>
+                        <button type="button" onclick="checkAnswerSlide2()">Senden</button>
+                    </form>
+                    <br>
+                    <p id="feedback-2" style="display:none;"></p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="image-section">
+                    <img src="Joao1.png" alt="StudentJoao">
+                </div>
+                <div class="text-section">
+                    <p>
+                        Großartig!
+                    </p>
+                    <br>
+                    <p>
+                        Also werde ich einige Studierende aus den letzten Semestern interviewen und sie fragen, wie viele Stunden sie durchschnittlich pro Woche im Semester gelernt haben und welche Endnote sie erhalten haben.
+                    </p>
+                    <br>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="text-section">
+                    <h2>
+                        Hier sind einige Ergebnisse meiner Interviews. Ich habe die gesammelten Daten in folgendem tabellarischen Format organisiert:
+                    </h2>
+                </div>
+                <div class="image-section">
+                    <img src="Dataset.svg" alt="Monkeys with Features">
+                </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide">
+                <div class="image-section">
+                    <img src="Joao1.png" alt="StudentJoao">
+                </div>
+                <div class="text-section">
+                    <h2>
+                        Angenommen, unser Ziel ist es, ein Modell zu erstellen, das die Endnoten der Studierenden basierend auf der Anzahl der Lernstunden vorhersagen kann...
+                        <br>
+                        was ist unser Merkmal?         
+                    </h2>
+                    <form id="quiz-form-5">
+                        <label>
+                            <input type="radio" name="correct" value="A">
+                            A) Die Anzahl der Lernstunden.
+                        </label><br>
+                        <label>
+                            <input type="radio" name="correct" value="B">
+                            B) Die Endnote der Studierenden.
+                        </label><br>
+                        <label>
+                            <input type="radio" name="correct" value="C">
+                            C) Bestehen oder Durchfallen.
+                        </label><br>
+                        <br>
+                        <button type="button" onclick="checkAnswerSlide5()">Senden</button>
+                    </form>
+                    <br>
+                    <p id="feedback-5" style="display:none;"></p>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="slide">
+                <div class="image-section">
+                    <img src="Joao1.png" alt="StudentJoao">
+                </div>
+                <div class="text-section">
+                    <h2>
+                        Angenommen, unser Ziel ist es, ein Modell zu erstellen, das die Endnoten der Studierenden basierend auf der Anzahl der Lernstunden vorhersagen kann...        
+                        <br>
+                        was ist unser Label?      
+                    </h2>
+                    <form id="quiz-form-6">
+                        <label>
+                            <input type="radio" name="solution" value="A">
+                            A) Die Anzahl der Lernstunden.
+                        </label><br>
+                        <label>
+                            <input type="radio" name="solution" value="B">
+                            B) Die Endnote der Studierenden.
+                        </label><br>
+                        <label>
+                            <input type="radio" name="solution" value="C">
+                            C) Bestehen oder Durchfallen.
+                        </label><br>
+                        <br>
+                        <button type="button" onclick="checkAnswerSlide6()">Senden</button>
+                    </form>
+                    <br>
+                    <p id="feedback-6" style="display:none;"></p>
+                </div>
+            </div>
+
+
+            <div class="slide">
+                <div class="image-section">
+                    <img src="Joao1.png" alt="StudentJoao">
+                </div>
+                <div class="text-section">
+                    <h2>
+                        Jetzt verwenden wir die von João gesammelten gelabelten Daten von früheren Studierenden und den überwachten Lernalgorithmus „Lineare Regression“, um ein Vorhersagemodell zu trainieren.
+                    </h2>
+                    <br>
+                    <h2>
+                        Dann kann João dieses Vorhersagemodell verwenden, um die Endnote der Studierenden basierend auf ihren Lernstunden vorherzusagen.
+                    </h2>
+                    <br>
+                    <h2>
+                        Also, lass uns unser Modell trainieren.
+                    </h2>
+                </div>
+            </div>
+        
+            
+        </div>
+    </div>
+
+    <!-- Arrows (Prev and Next) -->
+    <a class="prev" id="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" id="next" onclick="changeSlide(1)">&#10095;</a>    
+
+    <script src="introduction.js"></script>
+</body>
+</html>
