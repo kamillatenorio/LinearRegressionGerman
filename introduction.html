@@ -24,7 +24,7 @@
                     </h2>
                     <br>
                     <h2>
-                        Ich habe Schwierigkeiten, zu entscheiden, wie viele Stunden ich durchschnittlich wöchentlich lernen sollte, um eine gute Note in meiner abschließenden Mathematikprüfung am Ende des Semesters zu erreichen.
+                        Ich habe mich schwer damit getan, zu entscheiden, wie viele Stunden ich durchschnittlich pro Woche lernen sollte, um bei meiner Abschlussprüfung in Mathematik am Ende des Semesters eine hohe Anzahl richtiger Antworten zu haben.
                     </h2>
                 </div>
             </div>
@@ -36,20 +36,20 @@
                 </div>
                 <div class="text-section">
                     <h2>
-                        Was können wir tun, um João zu helfen?
+                        Wie können wir João helfen?
                     </h2>
                     <form id="quiz-form-2">
                         <label>
                             <input type="radio" name="answer" value="A">
-                            A) Daten von früheren Studierenden sammeln und ein Modell erstellen, das die Endnote basierend auf der Anzahl der Lernstunden vorhersagen kann.
+                            A) Daten von früheren Studierenden sammeln und ein Modell erstellen, das die Anzahl der richtigen Antworten basierend auf der Anzahl der Lernstunden vorhersagen kann.
                         </label><br>
                         <label>
                             <input type="radio" name="answer" value="B">
-                            B) Empfehlen, dass João so viel wie möglich lernt und sich nur auf die letzte Woche vor der Prüfung konzentriert.
+                            B) João empfehlen, so viel wie möglich zu lernen und sich erst in der letzten Woche vor dem Test darauf zu konzentrieren.
                         </label><br>
                         <label>
                             <input type="radio" name="answer" value="C">
-                            C) Vorschlagen, dass João häufig Pausen einlegt und mehr Zeit für Hobbys statt fürs Lernen verbringt.
+                            C) João vorschlagen, häufig Pausen einzulegen und mehr Zeit mit Hobbys zu verbringen, anstatt zu lernen.
                         </label><br>
                         <br>
                         <button type="button" onclick="checkAnswerSlide2()">Senden</button>
@@ -66,12 +66,11 @@
                 </div>
                 <div class="text-section">
                     <p>
-                        Großartig!
+                        Super!
                     </p>
                     <br>
                     <p>
-                        Also werde ich einige Studierende aus den letzten Semestern interviewen und sie fragen, wie viele Stunden sie durchschnittlich pro Woche im Semester gelernt haben und welche Endnote sie erhalten haben.
-                    </p>
+                        Ich werde also einige Studierende aus früheren Semestern befragen und sie fragen, wie viele Stunden sie im Durchschnitt pro Woche im Semester gelernt haben und wie viele richtige Antworten sie im Abschlusstest hatten.                    </p>
                     <br>
                 </div>
             </div>
@@ -80,7 +79,7 @@
             <div class="slide">
                 <div class="text-section">
                     <h2>
-                        Hier sind einige Ergebnisse meiner Interviews. Ich habe die gesammelten Daten in folgendem tabellarischen Format organisiert:
+                        Hier sind einige Ergebnisse meiner Befragung. Ich habe die gesammelten Daten in folgendem Tabellenformat organisiert:
                     </h2>
                 </div>
                 <div class="image-section">
@@ -95,22 +94,21 @@
                 </div>
                 <div class="text-section">
                     <h2>
-                        Angenommen, unser Ziel ist es, ein Modell zu erstellen, das die Endnoten der Studierenden basierend auf der Anzahl der Lernstunden vorhersagen kann...
-                        <br>
+                        Da unser Ziel darin besteht, ein Modell zu erstellen, das vorhersagen kann, wie viele Antworten die Studierenden im Abschlusstest richtig beantworten werden, basierend auf der Anzahl der Lernstunden...                       <br>
                         was ist unser Merkmal?         
                     </h2>
                     <form id="quiz-form-5">
                         <label>
                             <input type="radio" name="correct" value="A">
-                            A) Die Anzahl der Lernstunden.
+                            A) Lernstunden.
                         </label><br>
                         <label>
                             <input type="radio" name="correct" value="B">
-                            B) Die Endnote der Studierenden.
+                            B) Anzahl der richtigen Antworten.
                         </label><br>
                         <label>
                             <input type="radio" name="correct" value="C">
-                            C) Bestehen oder Durchfallen.
+                            C) Bestanden oder nicht bestanden.
                         </label><br>
                         <br>
                         <button type="button" onclick="checkAnswerSlide5()">Senden</button>
@@ -134,15 +132,15 @@
                     <form id="quiz-form-6">
                         <label>
                             <input type="radio" name="solution" value="A">
-                            A) Die Anzahl der Lernstunden.
+                            A) Lernstunden.
                         </label><br>
                         <label>
                             <input type="radio" name="solution" value="B">
-                            B) Die Endnote der Studierenden.
+                            B) Anzahl der richtigen Antworten.
                         </label><br>
                         <label>
                             <input type="radio" name="solution" value="C">
-                            C) Bestehen oder Durchfallen.
+                            C) Bestanden oder nicht bestanden.
                         </label><br>
                         <br>
                         <button type="button" onclick="checkAnswerSlide6()">Senden</button>
@@ -159,15 +157,15 @@
                 </div>
                 <div class="text-section">
                     <h2>
-                        Jetzt verwenden wir die von João gesammelten gelabelten Daten von früheren Studierenden und den überwachten Lernalgorithmus „Lineare Regression“, um ein Vorhersagemodell zu trainieren.
+                        Verwenden wir also unsere von João gesammelten und mit einer Bezeichnung versehenen Daten von früheren Schülern und den überwachten Lernalgorithmus der linearen Regression, um ein Vorhersagemodell zu trainieren. 
                     </h2>
                     <br>
                     <h2>
-                        Dann kann João dieses Vorhersagemodell verwenden, um die Endnote der Studierenden basierend auf ihren Lernstunden vorherzusagen.
+                        Anschließend kann João dieses Vorhersagemodell verwenden, um die Anzahl der richtigen Antworten vorherzusagen, die die Schüler basierend auf ihren Lernstunden erzielen werden.
                     </h2>
                     <br>
                     <h2>
-                        Also, lass uns unser Modell trainieren.
+                        Trainieren wir also unser Modell.
                     </h2>
                 </div>
             </div>
