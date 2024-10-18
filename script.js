@@ -107,12 +107,12 @@ function handleCollectData() {
     iteration = 0; // Reset iteration count
     controlsDiv.innerHTML = `
         <p>
-            Jetzt haben wir also die Daten. Sehen wir uns an, wie der lineare Regressionsalgorithmus durch Beobachtung gekennzeichneter Daten ein Modell lernt.
+            Jetzt haben wir also die Daten. Sehen wir uns an, wie der lineare Regressionsalgorithmus durch Beobachtung beschrifteter Daten ein Modell lernt.
         </p>
         <br>
         <br>
         <button id="startLearningBtn">
-            Schauen wir mal!
+            Schauen wir mal!        
         </button>
     `;
     document.getElementById('startLearningBtn').addEventListener('click', showExplanation);
@@ -123,21 +123,21 @@ function showExplanation() {
         <p>
             Lassen Sie uns zunächst diesen Algorithmus ein wenig besser verstehen.
         <br>
-            Das durch die lineare Regression erstellte Modell wird durch eine gerade Linie dargestellt (im Gegensatz zum Entscheidungsbaumalgorithmus, bei dem das Modell durch einen Baum dargestellt wird).
+            Das durch die lineare Regression erstellte Modell wird durch eine gerade Linie dargestellt (im Gegensatz zum Entscheidungsbaum-Algorithmus, bei dem das Modell durch einen Baum dargestellt wird).
         <br>
             Mathematisch gesehen ist eine gerade Linie wie folgt definiert, wobei wir durch Ändern des Werts der Gewichte meines Modells (d. h. a und b) verschiedene Linien erhalten können:
         </p>
         <h4> y = a * x + b </h4> 
 
-            Versuchen Sie, die folgenden Gewichte zu ändern, und überprüfen Sie, wie wir durch Ändern der Gewichte verschiedene Linien erhalten können:
+Versuchen Sie, die folgenden Gewichte zu ändern, und überprüfen Sie, wie wir durch Ändern der Gewichte verschiedene Linien erhalten können:
 
         <div>
-            <label for="aRange">a (Slope): </label>
+            <label for="aRange">a (Steigung): </label>
             <input type="range" id="aRange" min="-5" max="5" step="0.1" value="0">
             <span id="aValue">0</span>
         </div>
         <div>
-            <label for="bRange">b (Intercept): </label>
+            <label for="bRange">b (Achsenabschnitt): </label>
             <input type="range" id="bRange" min="-10" max="10" step="0.1" value="0">
             <span id="bValue">0</span>
         </div>
@@ -147,7 +147,7 @@ function showExplanation() {
         </p>
         <br>
         <button id="startLearningProcessBtn">
-            Beginnen wir mit dem Lernprozess
+            Beginnen wir mit dem Lernprozess.        
         </button>
 
     `;
@@ -303,9 +303,10 @@ function calculateErrors() {
                 I - BEWERTUNG: Fehler berechnen (Iteration ${iteration})
             </h2>
             <p> 
-                Berechnen wir nun den Fehler mit den aktualisierten Gewichtungswerten, d. h. vergleichen wir die vom Modell vorhergesagten Werte mit den tatsächlichen Werten, um zu beurteilen, ob das Modell gut zu den Daten passt.            </p>
+                Berechnen wir nun den Fehler mit den aktualisierten Gewichtungswerten, d. h. vergleichen wir die vom Modell vorhergesagten Werte mit den tatsächlichen Werten, um zu beurteilen, ob das Modell gut zu den Daten passt.              
+            </p>
             <p>
-                Der mittlere quadratische Fehler beträgt jetzt ${mse.toFixed(2)}. Da das Ziel darin besteht, einen Fehler nahe 0 zu haben, und der Fehler hoch ist, sollten wir die Gewichtswerte aktualisieren.
+                Der mittlere quadratische Fehler beträgt jetzt ${mse.toFixed(2)}.  Da das Ziel darin besteht, einen Fehler nahe 0 zu haben, und der Fehler hoch ist, sollten wir die Gewichtswerte aktualisieren.
             </p>
             <br><br>
             <button id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
@@ -371,7 +372,9 @@ function updateParameters() {
             <p>a = ${w.toFixed(2)}</p>
             <p>b = ${b.toFixed(2)}</p>
             <p>
-                <i> Um die Gewichtungswerte automatisch zu aktualisieren, verwendet die lineare Regression den Gradientenabstiegsalgorithmus.</i>
+                <i> 
+                    Um die Gewichtungswerte automatisch zu aktualisieren, verwendet die lineare Regression den Gradientenabstiegsalgorithmus.
+                </i>
             </p>
             <p>
                 Sehen wir uns an, wie unser Modell mit den neuen Gewichtungswerten aussieht. Überprüfen Sie die Grafik:
@@ -392,7 +395,7 @@ function updateParameters() {
                     II - VERBESSERUNG: Aktualisieren der Gewichtungen (Iteration ${iteration - 1})
                 </h2>
                 <p>
-                    Wie wir überprüft haben, ist das aktuelle Modell mit den vorherigen Gewichtungen nicht geeignet. Versuchen wir es mit anderen Gewichtungswerten:
+                    Wie wir überprüft haben, ist das aktuelle Modell mit den vorherigen Gewichtungen nicht geeignet. Probieren wir andere Gewichtungswerte aus:
                 </p>
                 <p>a = ${w.toFixed(2)}</p>
                 <p>b = ${b.toFixed(2)}</p>
