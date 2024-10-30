@@ -111,7 +111,7 @@ function handleCollectData() {
         </p>
         <br>
         <br>
-        <button id="startLearningBtn">
+        <button class="button" id="startLearningBtn">
             Schauen wir mal!        
         </button>
     `;
@@ -146,7 +146,7 @@ Versuchen Sie, die folgenden Gewichte zu ändern, und überprüfen Sie, wie wir 
             Die Aufgabe des linearen Regressionsalgorithmus besteht darin, die geeigneten Werte für die Gewichte a und b zu ermitteln, d. h. die Linie zu finden, die am besten zu den Daten „passt“.
         </p>
         <br>
-        <button id="startLearningProcessBtn">
+        <button class="button" id="startLearningProcessBtn">
             Beginnen wir mit dem Lernprozess.        
         </button>
 
@@ -225,7 +225,7 @@ function nextIteration() {
             <br>
         `;
     }
-    html += `<button id="nextBtn">Weiter</button>`;
+    html += `<button class="button" id="nextBtn">Weiter</button>`;
     controlsDiv.innerHTML = html;
     document.getElementById('nextBtn').addEventListener('click', () => checkModel());
 }
@@ -265,7 +265,7 @@ function checkModel() {
 
     if (mse < mseThreshold) {
         controlsDiv.innerHTML = `<p>Großartig! Wir haben ein Modell mit geringer Fehlerquote, das zu unseren Daten passt!</p>
-            <button id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
+            <button class="button" id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
         predictionsDiv.innerHTML = '';
         document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
         updateProgressBar(2); // Fully fill the progress bar
@@ -295,7 +295,7 @@ function calculateErrors() {
                 Eine beliebte Methode zur Berechnung dieses Fehlers ist die Verwendung des mittleren quadratischen Fehlers, der nun  ${mse.toFixed(2)} beträgt.
             </p>
             <br><br>
-            <button id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
+            <button class="button" id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
         `;
     } else {
         evaluationMessage = `
@@ -309,7 +309,7 @@ function calculateErrors() {
                 Der mittlere quadratische Fehler beträgt jetzt ${mse.toFixed(2)}.  Da das Ziel darin besteht, einen Fehler nahe 0 zu haben, und der Fehler hoch ist, sollten wir die Gewichtswerte aktualisieren.
             </p>
             <br><br>
-            <button id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
+            <button class="button" id="updateParametersBtn">Aktualisiere Gewichtswerte</button>
         `;
     }
 
@@ -380,7 +380,7 @@ function updateParameters() {
                 Sehen wir uns an, wie unser Modell mit den neuen Gewichtungswerten aussieht. Überprüfen Sie die Grafik:
             </p>
             <br><br>
-            <button id="evaluateBtn">Modell auswerten</button>
+            <button class="button" id="evaluateBtn">Modell auswerten</button>
         `;
         predictionsDiv.innerHTML = improvementMessage;
         // Attach event listener for the 'Evaluate' button
@@ -403,7 +403,7 @@ function updateParameters() {
                     Sehen wir uns an, wie unser Modell mit den neuen Gewichtungswerten aussieht. Überprüfen Sie die Grafik:
                 </p>
                 <br><br>
-                <button id="evaluateBtn">Modell auswerten</button>
+                <button class="button" id="evaluateBtn">Modell auswerten</button>
             `;
             predictionsDiv.innerHTML = improvementMessage;
         // Attach event listener for the 'Evaluate' button
@@ -415,7 +415,7 @@ function updateParameters() {
         } 
     } else {
         controlsDiv.innerHTML = `<p>Großartig! Wir haben ein Modell mit geringer Fehlerquote, das zu unseren Daten passt!</p><br><br>
-            <button id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
+            <button class="button" id="useModelBtn">Verwenden Sie Ihr Modell</button>`;
         predictionsDiv.innerHTML = '';
         document.getElementById('useModelBtn').addEventListener('click', showTestPhase);
         updateProgressBar(2); // Fully fill the progress bar for the current iteration
@@ -437,7 +437,7 @@ function showTestPhase() {
             Verwenden Sie dieses Modell, um vorherzusagen, wie viele richtige Antworten Sie im Test erhalten werden, je nachdem, wie viele Stunden Sie wöchentlich lernen möchten. Geben Sie die Anzahl der Stunden ein, die Sie lernen möchten:
         </p>
         <input type="number" id="studyHours" min="0" max="25" step="0.1">
-        <button id="submitHoursBtn">Senden</button>
+        <button class="button" id="submitHoursBtn">Senden</button>
         <div id="predictionResult"></div>
     `;
     document.getElementById('submitHoursBtn').addEventListener('click', predictCorrectAnswers);

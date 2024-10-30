@@ -136,6 +136,22 @@ body {
     color: #fff;
 }
 
+.button {
+    font-family: 'Fira Sans';
+    color: white;
+    background-color: rgb(98, 126, 110);
+    border: none;
+    font-size: 15px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 12px rgba(17, 17, 17, 0.2);
+  }
+  
+  .button:hover {
+    background-color: rgb(98, 126, 110);
+  }
+
 /* Adjust the positioning when the container is resized */
 @media (max-width: 768px) {
     .prev, .next {
