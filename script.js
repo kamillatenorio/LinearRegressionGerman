@@ -286,7 +286,7 @@ function calculateErrors() {
                 I - BEWERTUNG: Fehler berechnen (Iteration ${iteration})
             </h2>
             <p>
-                Der lineare Regressionsalgorithmus berechnet den Fehler, d. h., er vergleicht die vom Modell vorhergesagten Werte mit den tatsächlichen Werten, um zu beurteilen, ob das Modell gut zu den Daten passt.
+                Der lineare Regressionsalgorithmus berechnet den Fehler, d.h., er vergleicht die vom Modell vorhergesagten Werte mit den tatsächlichen Werten, um zu beurteilen, ob das Modell gut zu den Daten passt.
             </p>
             <p>
                 Das Ziel ist es, einen Fehler nahe 0 zu haben, und da der Fehler hoch ist, sollten wir die Gewichte aktualisieren.
