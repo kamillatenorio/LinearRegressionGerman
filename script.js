@@ -454,7 +454,7 @@ function predictCorrectAnswers() {
 
     const predictedAnswers = w * studyHours + b;
     const resultDiv = document.getElementById('predictionResult');
-    resultDiv.innerHTML = `<p>Wenn Sie ${studyHours} Stunden pro Woche lernen, können Sie davon ausgehen, dass Sie etwa ${predictedAnswers.toFixed(2)} von 10 Fragen richtig beantworten.</p>`;
+    resultDiv.innerHTML = `<br><p>Wenn Sie ${studyHours} Stunden pro Woche lernen, können Sie davon ausgehen, dass Sie etwa ${predictedAnswers.toFixed(2)} von 10 Fragen richtig beantworten. <br><br><br> Scrollen Sie nun nach unten und beantworten Sie die folgenden Fragen.</p>`;
     addTestDataPoint(studyHours, predictedAnswers);
 }
 
